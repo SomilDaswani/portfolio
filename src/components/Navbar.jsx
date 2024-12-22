@@ -8,10 +8,10 @@ const Navbar = (props) => {
     return (
         <>
             <nav className="container" style={{ color: props.mode === 'dark' ? "white" : "black" }}>
-                <h4 className="title-head">Sannu.</h4>
+                <h4 className="title-head">Jason Cole</h4>
                 <ul>
                     <li>
-                        <Link style={{ color: props.mode === 'dark' ? "white" : "black" }} to="/" className="link">HOME</Link>
+                        <Link style={{ color: props.mode === 'dark' ? "white" : "black" }} to="mailto:jasoncoleishere@gmail.com" className="link" >Contact</Link>
                     </li>
                     {/* Removed the CONTACT link */}
                 </ul>
