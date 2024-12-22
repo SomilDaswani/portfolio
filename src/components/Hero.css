@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+}
+.hero-title{
+    font-weight: 500;
+    font-size: 1.25em;
+}
+
+.job-title{
+    font-size: 3.0em;
+}
+
+.job-description{
+    font-size: 1.15em;
+    /* padding: 0px 400px;  */
+    max-width: 600px;
+}
+
+.icon-list{
+    width: 18%;
+}
+
+.spacer{
+    height: 100px;
+}
+
+.services{
+    width: 100%;
+}
+
+@media screen and (max-width: 479px){
+    /* .job-description{
+        padding: inherit;
+    } */
+    /* .icon-list{
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: center;
+    } */
+    .icon-item{
+        padding: 0px 10px;
+    }
+    .col-md-6{
+        padding: 20px 10px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    /* .job-description{
+        padding: inherit;
+    } */
+    /* .icon-list{
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: center;
+    } */
+    .icon-item{
+        padding: 0px 10px;
+    }
+}
+
+@media screen and (max-width: 991px){
+    /* .job-description{
+        padding: inherit;
+    } */
+    /* .icon-list{
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: center;
+    } */
+    .icon-item{
+        padding: 0px 10px;
+    }
+    
+}
+
+@media screen and (max-width: 1096px){
+    /* .job-description{
+        padding: inherit;
+    } */
+}
+
+.small-spacer{
+    height: 50px;
+}
+
+.service-description{
+    max-width: 500px;
+}
+
+.icon-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.special{
+    max-width: 900px;
+    padding: 0px 15px;
+}
+
+.skills{
+    max-width: 900px;
+    padding: 0px 15px;
+}
+
+.service-head{
+    padding: 10px 0px;
+}

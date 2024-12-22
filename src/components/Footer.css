@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+.footer{
+    padding: 25px;
+    width: 95%;
+}
+.title-foot{
+    font-weight: 500;
+}
+
+.spacer{
+    height: 50px;
+}
+
+.footer-icon-nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width: 479px){
+    .footer-icon-nav{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .footer-item{
+        padding:0px 5px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .footer-icon-nav{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .footer-item{
+        padding:0px 5px;
+    }
+}
+
