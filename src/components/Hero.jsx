@@ -15,10 +15,10 @@ const Hero = (props) =>{
                         <h1 className="hero-title"></h1>
                     </center>
                     <h2 className="job-title">Jason Cole</h2>
+                    <br />
                     <p className="job-description">A motivated Computer Science professional with a Masters in Interactive Multimedia and extensive experience in web development and digital marketing. Skilled in creating user-friendly applications and executing effective digital strategies, I have a strong interest in data structures and algorithmic problem-solving. I am looking to leverage my technical expertise and innovative mindset to contribute meaningfully to a forward-thinking organization.</p>
-                    <div className="small-spacer">
-                    </div>
                     
+                    <br />
                     <div className="icon-list">
     <span className="icon-item">
         <a

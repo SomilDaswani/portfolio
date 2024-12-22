@@ -22,7 +22,7 @@ function App() {
       setMode('dark');
       setTextMode('light');
       setDisplayTextMode('Light');
-      document.body.style.backgroundColor = "#454646";
+      document.body.style.backgroundColor = "#1a1a1a";
     } else {
       setMode('light');
       setTextMode('dark');

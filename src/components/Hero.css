@@ -19,7 +19,8 @@ body {
 
 .job-description {
     font-size: 1.15em;
-    max-width: 600px;
+    max-width: 600px; /* Retain the desktop layout */
+    margin: 0 auto; /* Center the description on larger screens */
 }
 
 .icon-list {
@@ -29,7 +30,7 @@ body {
     align-items: center; /* Centers icons vertically */
     flex-wrap: wrap; /* Ensures wrapping on smaller screens */
     gap: 10px; /* Adds spacing between icons */
-    width: 100%; /* Ensures proper alignment */
+    width: 100%;
 }
 
 .icon-item {
@@ -68,7 +69,6 @@ body {
     color: black;
 }
 
-
 .spacer {
     height: 100px;
 }
@@ -77,45 +77,64 @@ body {
     width: 100%;
 }
 
-@media screen and (max-width: 479px) {
-    .icon-item {
-        padding: 5px; /* Ensures proper spacing on small screens */
-    }
-    .col-md-6 {
-        padding: 20px 10px;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .icon-item {
-        padding: 5px; /* Consistent spacing for medium screens */
-    }
-}
-
-@media screen and (max-width: 991px) {
-    .icon-item {
-        padding: 5px; /* Maintain consistency */
-    }
-}
-
-.small-spacer {
-    height: 50px;
-}
-
 .service-description {
-    max-width: 500px;
+    max-width: 500px; /* Retain the desktop layout */
+    margin: 0 auto;
 }
 
 .special {
-    max-width: 900px;
+    max-width: 900px; /* Retain the desktop layout */
     padding: 0px 15px;
+    margin: 0 auto;
 }
 
 .skills {
-    max-width: 900px;
+    max-width: 900px; /* Retain the desktop layout */
     padding: 0px 15px;
+    margin: 0 auto;
 }
 
 .service-head {
     padding: 10px 0px;
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 767px) {
+    .job-title {
+        font-size: 2.5em; /* Adjust font size for smaller screens */
+    }
+    .job-description {
+        font-size: 1em; /* Adjust font size for readability */
+        max-width: 90%; /* Fit content within smaller screens */
+        padding: 0 15px; /* Add padding to avoid edge overflow */
+    }
+    .icon-item {
+        padding: 5px; /* Consistent spacing for medium screens */
+    }
+    .service-description,
+    .special,
+    .skills {
+        max-width: 90%; /* Adjust content width for smaller screens */
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .job-title {
+        font-size: 2em; /* Further reduce font size for very small screens */
+    }
+    .job-description {
+        font-size: 0.95em; /* Adjust font size for readability */
+        max-width: 90%; /* Fit content within smaller screens */
+        padding: 0 10px;
+    }
+    .icon-item {
+        padding: 5px;
+    }
+    .service-description,
+    .special,
+    .skills {
+        max-width: 90%; /* Adjust content width for very small screens */
+        padding: 0 10px;
+    }
 }
