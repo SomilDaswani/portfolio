@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700&display=swap');
 
-
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -9,109 +8,114 @@ body {
     font-family: 'Urbanist', sans-serif;
 }
 
-.hero-title{
+.hero-title {
     font-weight: 500;
     font-size: 1.25em;
 }
 
-.job-title{
+.job-title {
     font-size: 3.0em;
 }
 
-.job-description{
+.job-description {
     font-size: 1.15em;
-    /* padding: 0px 400px;  */
     max-width: 600px;
 }
 
-.icon-list{
-    width: 18%;
+.icon-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centers icons horizontally */
+    align-items: center; /* Centers icons vertically */
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    gap: 10px; /* Adds spacing between icons */
+    width: 100%; /* Ensures proper alignment */
 }
 
-.spacer{
+.icon-item {
+    margin: 0 5px; /* Adds a margin around each icon for spacing */
+}
+
+.theme-button {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 25px; /* Rounded corners for a sleek look */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer;
+}
+
+.theme-button.btn-outline-light {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+
+.theme-button.btn-outline-light:hover {
+    background-color: black;
+    color: white;
+}
+
+.theme-button.btn-outline-dark {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+
+.theme-button.btn-outline-dark:hover {
+    background-color: white;
+    color: black;
+}
+
+
+.spacer {
     height: 100px;
 }
 
-.services{
+.services {
     width: 100%;
 }
 
-@media screen and (max-width: 479px){
-    /* .job-description{
-        padding: inherit;
-    } */
-    /* .icon-list{
-        flex-wrap: nowrap;
-        flex-direction: row;
-        justify-content: center;
-    } */
-    .icon-item{
-        padding: 0px 10px;
+@media screen and (max-width: 479px) {
+    .icon-item {
+        padding: 5px; /* Ensures proper spacing on small screens */
     }
-    .col-md-6{
+    .col-md-6 {
         padding: 20px 10px;
     }
 }
 
-@media screen and (max-width: 767px){
-    /* .job-description{
-        padding: inherit;
-    } */
-    /* .icon-list{
-        flex-wrap: nowrap;
-        flex-direction: row;
-        justify-content: center;
-    } */
-    .icon-item{
-        padding: 0px 10px;
+@media screen and (max-width: 767px) {
+    .icon-item {
+        padding: 5px; /* Consistent spacing for medium screens */
     }
 }
 
-@media screen and (max-width: 991px){
-    /* .job-description{
-        padding: inherit;
-    } */
-    /* .icon-list{
-        flex-wrap: nowrap;
-        flex-direction: row;
-        justify-content: center;
-    } */
-    .icon-item{
-        padding: 0px 10px;
+@media screen and (max-width: 991px) {
+    .icon-item {
+        padding: 5px; /* Maintain consistency */
     }
-    
 }
 
-@media screen and (max-width: 1096px){
-    /* .job-description{
-        padding: inherit;
-    } */
-}
-
-.small-spacer{
+.small-spacer {
     height: 50px;
 }
 
-.service-description{
+.service-description {
     max-width: 500px;
 }
 
-.icon-list{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.special{
+.special {
     max-width: 900px;
     padding: 0px 15px;
 }
 
-.skills{
+.skills {
     max-width: 900px;
     padding: 0px 15px;
 }
 
-.service-head{
+.service-head {
     padding: 10px 0px;
 }

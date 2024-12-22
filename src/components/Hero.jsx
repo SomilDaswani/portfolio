@@ -20,29 +20,28 @@ const Hero = (props) =>{
                     </div>
                     
                     <div className="icon-list">
-                        {/* <div className="col-sm-4"> */}
-                        <span className="icon-item">
-                        <a style={{color : props.mode === 'dark' ? "white" : "black"}} href="https://www.github.com/sannanumer2003" target="_blank">
-                        <FontAwesomeIcon icon={faGithub} size="2x" style={{color: "#11111",}}/></a>
-                        </span>
-                        
-                        {/* </div> */}
-                        {/* <div className="col-sm-4"> */}
-                        <span className="icon-item">
-                        <a style={{color : props.mode === 'dark' ? "white" : "black"}} href="https://www.linkedin.com/in/sannanumer" target="_blank">
-                        <FontAwesomeIcon icon={faLinkedinIn} size="2x" style={{color: "#11111",}}/></a>
-                        </span>
-                        
-                        {/* </div> */}
-                        {/* <div className="col-sm-4"> */}
-                        <span className="icon-item">
-                        <a style={{color : props.mode === 'dark' ? "white" : "black"}} href="https://www.twitter.com/sannan_umer" target="_blank">
-                        <FontAwesomeIcon icon={faTwitter} size="2x" style={{color: "#11111",}}/></a>
-                        </span>
-                        {/* <a href="#">hh</a>
-                        <a href="#">hh</a> */}
-                        {/* </div> */}
-                    </div>
+    <span className="icon-item">
+        <a
+            style={{ color: props.mode === 'dark' ? "white" : "black" }}
+            href="https://www.linkedin.com/in/sannanumer"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <FontAwesomeIcon icon={faLinkedinIn} size="2x" />
+        </a>
+    </span>
+    <span className="icon-item">
+        <a
+            style={{ color: props.mode === 'dark' ? "white" : "black" }}
+            href="https://www.twitter.com/sannan_umer"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+        </a>
+    </span>
+</div>
+
                     <br></br>
                     <p>---------------------------------------------</p>
                     <div className="spacer">
@@ -116,7 +115,7 @@ const Hero = (props) =>{
                             <h4 className="service-head">Java / C / C++</h4>
                             </div>
                             <div className="service-description special">
-                                <p>I have excellent problem solving skills with having 100+ questions solved on various coding platforms like LeetCode, HackerRank, GeeksforGeeks and CodeChef. I have participated in multiple Competitive Programming competitions hosted by Google, Microsoft and others using Java and C++.</p>
+                                <p>I possess strong problem-solving skills, having solved over 100 coding challenges on platforms such as LeetCode, HackerRank, GeeksforGeeks, and CodeChef. I have also participated in several competitive programming competitions hosted by companies like Google, Microsoft, and others, using Java and C++.</p>
                             </div>
                         {/* </div> */}
                         {/* <div className="col-md-3"></div> */}
