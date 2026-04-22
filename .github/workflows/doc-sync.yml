@@ -1,0 +1,57 @@
+name: Smart Documentation Sync
+
+on:
+  pull_request:
+    types: [closed]   # fires when any PR is closed (merged or declined)
+
+jobs:
+  sync-docs:
+    # Guard 1: PR must have been merged (not just closed/declined)
+    # Guard 2: PR must have the "major" label
+    if: >
+      github.event.pull_request.merged == true &&
+      contains(github.event.pull_request.labels.*.name, 'major')
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # needed so the workflow can git push back to the repo
+
+    steps:
+      # 1. Check out the full repo at the state AFTER the merge
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0   # full git history — needed to accurately read diffs
+
+      # 2. Set up Python 3.11 on the runner
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. Install only what the script needs
+      - name: Install dependencies
+        run: pip install groq requests
+
+      # 4. Run the sync script
+      #    PR_NUMBER comes from the event payload — no manual input needed
+      - name: Run documentation sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: python scripts/sync_docs.py
+
+      # 5. Commit and push the updated docs back to main
+      #    "git diff --staged --quiet" exits 0 if nothing changed → skips commit
+      #    This prevents empty commits when no docs needed updating
+      - name: Commit and push updated docs
+        run: |
+          git config --local user.email "docs-bot@noreply.github.com"
+          git config --local user.name "Docs Bot"
+          git add my-docs/docs/
+          git diff --staged --quiet || git commit -m \
+            "docs: auto-update from PR #${{ github.event.pull_request.number }} — ${{ github.event.pull_request.title }}"
+          git push
