@@ -114,19 +114,33 @@ Rules:
 
 def apply_updates(updates_raw):
     """
-    Parses the JSON from Groq and writes updated content to disk.
-    Strips markdown fences in case the model wraps the JSON anyway.
-    Creates any missing subdirectories automatically.
+    Parses JSON with a "lazy" decoder to handle raw newlines from the AI,
+    cleans markdown fences, and writes files.
     """
     clean = updates_raw.strip()
-    # Strip fences if model ignores instructions
+    
+    # 1. Smarter Markdown Fence Stripping
+    # Sometimes AI adds '```json' or just '```'
     if clean.startswith("```"):
-        clean = clean.split("\n", 1)[1]  # remove opening fence line
-    if clean.endswith("```"):
-        clean = clean.rsplit("```", 1)[0]  # remove closing fence
-    clean = clean.strip()
+        lines = clean.splitlines()
+        # Remove first line if it's a fence
+        if lines[0].startswith("```"):
+            lines = lines[1:]
+        # Remove last line if it's a fence
+        if lines and lines[-1].startswith("```"):
+            lines = lines[:-1]
+        clean = "\n".join(lines).strip()
 
-    updates = json.loads(clean)
+    try:
+        # 2. THE FIX: Use strict=False
+        # This allows raw control characters (like actual newlines) inside the string values
+        updates = json.loads(clean, strict=False)
+    except json.JSONDecodeError as e:
+        print(f"── JSON Parse Failed ──────────────────────────────")
+        print(f"Error: {e}")
+        print(f"Fragment near error: {clean[max(0, e.pos-40):e.pos+40]}")
+        print(f"───────────────────────────────────────────────────")
+        return
 
     if not updates.get('files_to_update'):
         print("[INFO] No documentation updates needed for this PR.")
@@ -137,6 +151,7 @@ def apply_updates(updates_raw):
         content = file_update['updated_content']
         reason  = file_update['reason']
 
+        # Ensure directory exists before writing
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, 'w', encoding='utf-8') as f:
             f.write(content)
