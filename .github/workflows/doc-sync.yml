@@ -8,9 +8,7 @@ jobs:
   sync-docs:
     # Guard 1: PR must have been merged (not just closed/declined)
     # Guard 2: PR must have the "major" label
-    if: >
-      github.event.pull_request.merged == true &&
-      contains(github.event.pull_request.labels.*.name, 'major')
+    if: github.event.pull_request.merged == true 
 
     runs-on: ubuntu-latest
 
